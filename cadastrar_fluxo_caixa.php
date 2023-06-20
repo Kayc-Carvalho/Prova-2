@@ -1,23 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
     include("conexao.php");
     $data = $_POST['data'];
-    $tipo = $_POST['opcao'];
+    $tipo = $_POST['tipo'];
     $valor = $_POST['valor'];
-    $hist = $_POST['hist'];
+    $historico = $_POST['historico'];
     $cheque = $_POST['cheque'];
 
+    $sql = "select * from fluxo_caixa";
 
-    echo "<h1>Dados do Usuário</h1>";
+    echo "<h1>Dados</h1>";
     echo "Data: $data <br>";
     echo "Tipo: $tipo <br>";
-    echo "Histórico: $hist <br>";
+    echo "Valor: $valor <br>";
+    echo "Histórico: $historico <br>";
     echo "Cheque: $cheque <br>";
     
-    $sql = "INSERT into fluxo_caixa (data, tipo, valor, historico, cheque)";
+    $sql = "insert into fluxo_caixa (data,tipo,valor,historico,cheque)";
 
-    $sql .= "values ('".$data."','".$tipo."', '".$valor."', '".$hist."','".$cheque."')";
+    $sql .= "values ('".$data."','".$tipo."', '".$valor."', '".$historico."','".$cheque."')";
 
-    //echo $sql."<br>";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "Dados cadastrados com sucesso!";
@@ -25,4 +35,6 @@
         echo "Erro ao tentar cadastrar!";
     
 ?>
-<a href="index.php">Voltar</a>
+    <button><a href="index.php">Tela Inicial</a></button>
+</body>
+</html>

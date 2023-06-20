@@ -1,37 +1,54 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
 </head>
+
 <body>
-    <h1>Cadastro de fluxo</h1>
-    <form action="cadastrar_fluxo_caixa.php" method="post" enctype="multipart/form-data">
         <div>
-            <label for="nome">Data: </label>
-            <input type="date" name="data" id="data">
+            <h1>
+                Cadastro Fluxo de Caixa.
+            </h1>
+            <form action="cadastrar_fluxo_caixa.php" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="data">Data: </label>
+                    <input type="date" name="data" id="data" class="form-control">
+                </div>
+
+                <div>
+                    <label for="tipo">Tipo: </label>
+                    <input type="radio" name="tipo" value="entrada" required>
+                    <label for="tipo">Entrada</label>
+                    <input type="radio" name="tipo" value="saida" required >
+                    <label for="tipo">Saída</label>
+                </div>
+
+
+                <div>
+                    <label for="valor">Valor: </label>
+                    <input type="number" stap name="valor" id="valor" required maxlength="13" class="form-control" step=".01">
+                </div>
+                <div>
+                    <label for="historico">Histórico: </label>
+                    <input type="text" name="historico" id="historico" required maxlength="150" class="form-control">
+                </div>
+                <div>
+                    <label for="cheque">Cheque: </label>
+                    <select class="form-control" name="cheque">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+                <input type="submit" value="Enviar" class="buttom">
+                <button><a href="index.php">Tela Inicial</a></button>
+            </form>
         </div>
-        <p>Tipo: </p>
-        <input type="radio" name="opcao" value = "entrada"> Entrada
-        <input type="radio" name="opcao" value = "saida"> Saída
-        <div>
-            <label for="valor">Valor: </label>
-            <input type="number" name="valor" id="valor" step="0.01">
-        </div>
-        <div>
-            <label for="hist">Histórico: </label>
-            <input type="text" name="hist" id="hist">
-        </div>
-        <div>
-            <p>Cheque:</p>
-            <select name = "cheque">
-                <option value="Não">Não</option>
-                <option value="Sim">Sim</option>
-            </select>
-        </div>
-        <input type="submit" value="Enviar">
-    </form>
+    </div>
 </body>
+
 </html>
